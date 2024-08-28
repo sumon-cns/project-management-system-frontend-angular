@@ -1,0 +1,68 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-title {
+  margin-bottom: 8px;
+}
+
+.dashboard {
+  padding: 20px;
+}
+
+button {
+  padding: 10px 15px;
+  margin-right: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+thead {
+  background-color: #f4f4f4;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background-color: #f4f4f4;
+}
+
+.date-range-picker {
+  /*position: absolute;
+  top: 0;
+  right: 0;*/
+  display: flex;
+  gap: 10px;
+}
+
+.date-range-picker input {
+  padding: 5px;
+}
+
+.date-range-picker button {
+  padding: 5px 10px;
+}

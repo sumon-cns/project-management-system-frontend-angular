@@ -1,0 +1,78 @@
+* {
+  margin: 2px;
+  padding: 2px;
+}
+hr {
+  padding: 0;
+  margin: 0;
+}
+.edit-project {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.edit-project h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.edit-project label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.edit-project input,
+.edit-project textarea,
+.edit-project select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.edit-project input:focus,
+.edit-project textarea:focus,
+.edit-project select:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.back-button {
+  margin-top: 2px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+}

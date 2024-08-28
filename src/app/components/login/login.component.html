@@ -1,0 +1,20 @@
+<div class="login-form">
+  <h1>Project Management System</h1>
+  <h2 style="text-align: center">Login</h2>
+  <form (ngSubmit)="handleLogin()" ngNativeValidate>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input [(ngModel)]="username" type="text" id="username" name="username" required/>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input [(ngModel)]="password" type="password" id="password" name="password" required/>
+    </div>
+    <button type="submit" style="width: 100%">Login</button>
+  </form>
+  <p class="register-prompt">
+    Don't have an account yet?
+    <a routerLink="/register">Register now</a>
+  </p>
+  <app-loader *ngIf="isLoading"></app-loader>
+</div>

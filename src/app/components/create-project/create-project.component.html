@@ -1,0 +1,30 @@
+<div>
+  <app-sidebar></app-sidebar>
+  <div class="create-project content">
+    <h1>Create New Project</h1>
+    <form (ngSubmit)="submitForm()" ngNativeValidate>
+      <label for="name">Name:</label>
+      <input type="text" [(ngModel)]="name" name="name" id="name" required/>
+
+      <label for="intro">Intro:</label>
+      <textarea [(ngModel)]="intro" name="intro" id="intro" required></textarea>
+
+      <label for="status">Status:</label>
+      <select id="status" name="projectStatus" required [(ngModel)]="projectStatus">
+        <option value="">Select One</option>
+        <option value="pre">Pre</option>
+        <option value="start">Start</option>
+        <option value="end">End</option>
+      </select>
+
+      <label for="startDate">Start Date:</label>
+      <input type="date" [(ngModel)]="startDate" name="startDate" id="startDate"/>
+
+      <label for="endDate">End Date:</label>
+      <input type="date" [(ngModel)]="endDate" name="endDate" id="endDate" required/>
+
+      <button class="submit-button" type="submit">Create Project</button>
+    </form>
+  </div>
+  <app-loader *ngIf="isLoading"></app-loader>
+</div>

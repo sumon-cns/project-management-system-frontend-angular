@@ -1,0 +1,27 @@
+<div>
+  <app-sidebar></app-sidebar>
+  <div class="container content">
+    <p class="title">Users from API:</p>
+    <table class="user-table">
+      <thead>
+      <tr>
+        <th>Avatar</th>
+        <th>ID</th>
+        <th>Email</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td><img [src]="user.avatar" [alt]="'avatar for user ' + user.id" class="avatar"></td>
+        <td>{{ user.id }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.last_name }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <app-loader *ngIf="isLoading"></app-loader>
+</div>

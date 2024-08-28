@@ -1,0 +1,73 @@
+<div>
+  <app-sidebar></app-sidebar>
+  <div class="edit-project" *ngIf="project">
+    <h1>Edit Project</h1>
+    <form (ngSubmit)="submitForm()" ngNativeValidate>
+      <label for="name">Name:</label>
+      <input type="text" [(ngModel)]="project.name" id="name" name="name" required/>
+
+      <label for="intro">Intro:</label>
+      <textarea [(ngModel)]="project.intro" name="intro" id="intro" required></textarea>
+
+      <label for="startDate">Start Date:</label>
+      <input type="date" [(ngModel)]="startDateTime" name="startDate" id="startDate"/>
+
+      <label for="endDate">End Date:</label>
+      <input type="date" [(ngModel)]="endDateTime" name="endDate" id="endDate" required/>
+
+      <label for="status">Status:</label>
+      <select [(ngModel)]="project.projectStatus" name="projectStatus" id="status" required>
+        <option value="pre">Pre</option>
+        <option value="start">Start</option>
+        <option value="end">End</option>
+      </select>
+
+      <button class="submit-button" type="submit">Update Project</button>
+    </form>
+    <div *ngIf="project.owner">
+      <h3>Owner's info:</h3>
+      <p><strong>Owner ID:</strong> {{ project.owner.id }}</p>
+      <p><strong>Name:</strong> {{ project.owner.fullName }}</p>
+      <p><strong>Username:</strong> {{ project.owner.username }}</p>
+      <p><strong>Email:</strong> {{ project.owner.email }}</p>
+    </div>
+    <hr>
+    <div class="members-list" *ngIf="project.members && project.members.length > 0">
+      <h3>Members of this project: </h3>
+      <table>
+        <thead>
+        <tr>
+          <th>Username</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let member of project.members">
+          <td>{{ member.username }}</td>
+          <td>{{ member.fullName }}</td>
+          <td>{{ member.email }}</td>
+          <td>
+            <button (click)="removeMember(member.id)">Remove</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <hr>
+    </div>
+    <div class="available-members-list" *ngIf="availableMembers.length > 0">
+      <h3>Available Members to add to this project: </h3>
+      <ng-multiselect-dropdown
+        [placeholder]="'Please Select One'"
+        [settings]="dropdownSettings"
+        [data]="getAvailableMembers()"
+        [(ngModel)]="selectedMembers">
+      </ng-multiselect-dropdown>
+      <br>
+      <button class="submit-button" (click)="addUsers()">Add Member(s)</button>
+    </div>
+    <app-loader *ngIf="isLoading"></app-loader>
+  </div>
+</div>
+

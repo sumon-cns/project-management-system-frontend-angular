@@ -1,0 +1,31 @@
+<div class="registration-form">
+  <h1>Register</h1>
+  <form (ngSubmit)="handleSubmit()" ngNativeValidate>
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input [(ngModel)]="fullName" name="fullName" type="text" id="fullName" required/>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input [(ngModel)]="email" name="email" type="email" id="email" required/>
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input [(ngModel)]="username" name="username" type="text" id="username" required/>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input [(ngModel)]="password" name="password" type="password" id="password" required/>
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input [(ngModel)]="confirmPassword" type="password" id="confirmPassword" name="confirmPassword" required/>
+    </div>
+    <button type="submit" style="width: 100%">Register</button>
+  </form>
+  <p class="login-prompt">
+    Already have an account?
+    <a routerLink="/login">Login</a>
+  </p>
+  <app-loader *ngIf="isLoading"></app-loader>
+</div>

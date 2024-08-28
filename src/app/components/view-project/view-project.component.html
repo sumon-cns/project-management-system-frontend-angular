@@ -1,0 +1,47 @@
+<div>
+  <app-sidebar></app-sidebar>
+  <div *ngIf="project" class="view-project content">
+    <h1>Project Details</h1>
+    <div>
+      <p><strong>Name:</strong> {{ project.name }}</p>
+      <p><strong>Intro:</strong> {{ project.intro }}</p>
+      <p><strong>Status:</strong> {{ project.projectStatus }}</p>
+      <p><strong>Start Date:</strong>
+        {{ project.startDateTime && (project.startDateTime | date:'yyyy-MM-dd') || '--' }}
+      </p>
+      <p><strong>End Date:</strong>
+        {{ project.endDateTime | date:'yyyy-MM-dd' }}
+      </p>
+    </div>
+    <hr>
+    <div class="members-list" *ngIf="project.members && project.members.length > 0">
+      <h3>Members of this project: </h3>
+      <table>
+        <thead>
+        <tr>
+          <th>Username</th>
+          <th>Full Name</th>
+          <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let member of project.members">
+          <td>{{ member.username }}</td>
+          <td>{{ member.fullName }}</td>
+          <td>{{ member.email }}</td>
+        </tr>
+        </tbody>
+      </table>
+      <hr>
+    </div>
+
+    <div *ngIf="project.owner">
+      <h3>Owner's info:</h3>
+      <p><strong>Owner ID:</strong> {{ project.owner.id }}</p>
+      <p><strong>Name:</strong> {{ project.owner.fullName }}</p>
+      <p><strong>Username:</strong> {{ project.owner.username }}</p>
+      <p><strong>Email:</strong> {{ project.owner.email }}</p>
+    </div>
+  </div>
+  <app-loader *ngIf="isLoading"></app-loader>
+</div>

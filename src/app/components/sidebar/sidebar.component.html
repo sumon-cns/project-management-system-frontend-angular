@@ -1,0 +1,9 @@
+<div class="sidebar">
+  <a [routerLink]="['/']" [ngClass]="{'active': isActive('/')}">Dashboard</a>
+  <a [routerLink]="['/create-project']" [ngClass]="{'active': isActive('/create-project')}">Create Project</a>
+  <a [routerLink]="['/projects']" [ngClass]="{'active': isViewProjectActive()}">View Project</a>
+  <a [routerLink]="['/edit-project']" [ngClass]="{'active': isEditProjectActive()}">Edit Project</a>
+  <a [routerLink]="['/users']" [ngClass]="{'active': isActive('/users')}">Users from api</a>
+  <a target="_blank" href="http://localhost:8080/swagger-ui/index.html">API Docs</a>
+  <a href="#" (click)="handleLogout($event)">Logout</a>
+</div>
